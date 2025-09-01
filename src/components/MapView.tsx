@@ -50,16 +50,7 @@ interface MapViewProps {
 }
 
 export const MapView = ({ data, center = [37.7749, -122.4194], zoom = 8 }: MapViewProps) => {
-  const [visibleCategories, setVisibleCategories] = useState<Set<string>>(new Set());
   const mapRef = useRef<any>(null);
-  
-  // Get unique categories
-  const categories = Array.from(new Set(data.map(point => point.category)));
-  
-  // Initialize all categories as visible
-  if (visibleCategories.size === 0 && categories.length > 0) {
-    setVisibleCategories(new Set(categories));
-  }
 
   // Handle window resize to invalidate map size
   useEffect(() => {
@@ -74,19 +65,6 @@ export const MapView = ({ data, center = [37.7749, -122.4194], zoom = 8 }: MapVi
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  
-  const toggleCategory = (category: string) => {
-    const newVisible = new Set(visibleCategories);
-    if (newVisible.has(category)) {
-      newVisible.delete(category);
-    } else {
-      newVisible.add(category);
-    }
-    setVisibleCategories(newVisible);
-  };
-  
-  // Filter data based on visible categories
-  const filteredData = data.filter(point => visibleCategories.has(point.category));
 
   return (
     <div style={{ 
@@ -94,51 +72,6 @@ export const MapView = ({ data, center = [37.7749, -122.4194], zoom = 8 }: MapVi
       height: '100%',
       width: '100%'
     }}>
-      {/* Category Filter Overlay */}
-      <div style={{ 
-        position: 'absolute',
-        top: '20px',
-        right: '20px',
-        width: '250px',
-        padding: '15px', 
-        backgroundColor: 'rgba(248, 249, 250, 0.95)',
-        backdropFilter: 'blur(10px)',
-        borderRadius: '8px',
-        zIndex: 1000,
-        boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-      }}>
-        <h3 style={{ marginTop: 0, marginBottom: '15px', borderBottom: '2px solid #dee2e6', paddingBottom: '5px' }}>
-          Filter Categories
-        </h3>
-        {categories.map(category => (
-          <div key={category} style={{ marginBottom: '10px' }}>
-            <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
-              <input
-                type="checkbox"
-                checked={visibleCategories.has(category)}
-                onChange={() => toggleCategory(category)}
-                style={{ marginRight: '8px' }}
-              />
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1 }}>
-                <div style={{
-                  width: '12px',
-                  height: '12px',
-                  backgroundColor: categoryColors[category as keyof typeof categoryColors] || categoryColors.default,
-                  border: '1px solid #000',
-                  borderRadius: '50% 50% 50% 0',
-                  transform: 'rotate(-45deg)',
-                  flexShrink: 0
-                }}></div>
-                <span>{category}</span>
-                <span style={{ marginLeft: 'auto', color: '#666', fontSize: '12px' }}>
-                  ({data.filter(p => p.category === category).length})
-                </span>
-              </div>
-            </label>
-          </div>
-        ))}
-      </div>
-
       {/* Full Screen Map Container */}
       <MapContainer
         center={center}
@@ -154,7 +87,7 @@ export const MapView = ({ data, center = [37.7749, -122.4194], zoom = 8 }: MapVi
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       
-      {filteredData.map((point) => {
+      {data.map((point) => {
         const markerIcon = markerIcons[point.category as keyof typeof markerIcons] || markerIcons.default;
         
         return (
