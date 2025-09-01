@@ -1,4 +1,4 @@
-import { useMemo, useEffect } from 'react';
+import { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { MapView } from '../components/MapView';
 import { useSearch } from '../contexts/SearchContext';

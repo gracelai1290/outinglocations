@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
+import type { ReactNode } from 'react';
 import { fetchSheetData } from '../services/googleSheets';
 import type { MapDataPoint } from '../types';
 
