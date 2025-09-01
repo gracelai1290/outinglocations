@@ -215,7 +215,7 @@ export const CategoryPage = () => {
               )}
               
               <a 
-                href={`/?lat=${location.latitude}&lng=${location.longitude}&zoom=15`}
+                href={`${import.meta.env.BASE_URL}?lat=${location.latitude}&lng=${location.longitude}&zoom=15`}
                 style={{
                   display: 'inline-block',
                   padding: '8px 16px',
