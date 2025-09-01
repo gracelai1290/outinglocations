@@ -8,6 +8,6 @@ export default defineConfig(({ command, mode }) => {
   return {
     plugins: [react()],
     // base: isProduction ? '/outinglocations/' : '/'
-    base: '/outinglocations/'
+    base: '/outinglocations/',
   }
 })
