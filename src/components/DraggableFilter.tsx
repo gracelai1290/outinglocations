@@ -3,11 +3,11 @@ import { useCategoryFilter } from '../contexts/CategoryFilterContext';
 
 // Category color mapping
 const categoryColors = {
-  'Camping': '#FF69B4',      // Pink
-  'Caves & Mines': '#00FFFF', // Cyan
-  'Backpacking': '#FFFF00',   // Yellow
-  'Auto/Aviation/Trains': '#9932CC', // Purple
-  'default': '#9932CC'        // Purple for any other categories
+  'Camping': '#FFB6C1',      // Light Pink
+  'Caves & Mines': '#B0E0E6', // Powder Blue
+  'Backpacking': '#FFFACD',   // Lemon Chiffon
+  'Auto/Aviation/Trains': '#DDA0DD', // Plum
+  'default': '#DDA0DD'        // Plum for any other categories
 };
 
 export const DraggableFilter = () => {

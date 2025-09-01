@@ -151,10 +151,10 @@ export const Sidebar = () => {
               {item.path === '/categories' && (
                 <div style={{ marginLeft: '20px', marginTop: '8px' }}>
                   {[
-                    { name: 'Camping', emoji: '🏕️', color: '#FF69B4', category: 'Camping' },
-                    { name: 'Caves & Mines', emoji: '🕳️', color: '#00FFFF', category: 'Caves & Mines' },
-                    { name: 'Backpacking', emoji: '🎒', color: '#FFFF00', category: 'Backpacking' },
-                    { name: 'Auto/Aviation/Trains', emoji: '🚂', color: '#9932CC', category: 'Auto/Aviation/Trains' }
+                    { name: 'Camping', emoji: '🏕️', color: '#FFB6C1', category: 'Camping' },
+                    { name: 'Caves & Mines', emoji: '🕳️', color: '#B0E0E6', category: 'Caves & Mines' },
+                    { name: 'Backpacking', emoji: '🎒', color: '#FFFACD', category: 'Backpacking' },
+                    { name: 'Auto/Aviation/Trains', emoji: '🚂', color: '#DDA0DD', category: 'Auto/Aviation/Trains' }
                   ].map(activity => {
                     const hasSubcategories = subcategories.some(sub => 
                       mapData.some(point => point.category === activity.category && point.subcategory === sub)
@@ -169,7 +169,7 @@ export const Sidebar = () => {
                             alignItems: 'center',
                             padding: '6px 12px',
                             borderRadius: '4px',
-                            fontSize: '12px',
+                            fontSize: '16px',
                             cursor: 'pointer',
                             transition: 'all 0.2s ease',
                             color: '#6c757d',
@@ -196,7 +196,7 @@ export const Sidebar = () => {
                               flex: 1
                             }}
                           >
-                            <span style={{ fontSize: '12px' }}>{activity.emoji}</span>
+                            <span style={{ fontSize: '18px' }}>{activity.emoji}</span>
                             <span>{activity.name}</span>
                           </div>
                           
@@ -229,7 +229,7 @@ export const Sidebar = () => {
                             style={{
                               padding: '4px 12px',
                               borderRadius: '4px',
-                              fontSize: '12px',
+                              fontSize: '16px',
                               cursor: 'pointer',
                               transition: 'all 0.2s ease',
                               color: '#868e96',
