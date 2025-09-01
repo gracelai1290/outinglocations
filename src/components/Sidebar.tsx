@@ -2,26 +2,13 @@ import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useCategoryFilter } from '../contexts/CategoryFilterContext';
 
-// Category color mapping (same as MapView)
-const categoryColors = {
-  'Camping': '#FF69B4',      // Pink
-  'Caves & Mines': '#00FFFF', // Cyan
-  'Backpacking': '#FFFF00',   // Yellow
-  'Auto/Aviation/Trains': '#9932CC', // Purple
-  'default': '#9932CC'        // Purple for any other categories
-};
 
 export const Sidebar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
   const { 
-    selectedCategories, 
-    allCategories, 
-    mapData, 
-    toggleCategory, 
-    selectAllCategories, 
-    clearAllCategories 
+    mapData
   } = useCategoryFilter();
 
   // Get all unique subcategories from the data

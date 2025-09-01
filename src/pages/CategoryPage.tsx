@@ -55,7 +55,7 @@ export const CategoryPage = () => {
     }
   }, [searchParams, setSearchTerm]);
 
-  const categories = Array.from(new Set(mapData.map(point => point.category)));
+  // const categories = Array.from(new Set(mapData.map(point => point.category)));
   
   // Filter data by category and search term
   const filteredData = useMemo(() => {
