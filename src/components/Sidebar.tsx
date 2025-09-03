@@ -155,8 +155,7 @@ export const Sidebar = () => {
                     { name: 'Caves & Mines', emoji: '🕳️', color: '#B0E0E6', category: 'Caves & Mines' },
                     { name: 'Backpacking', emoji: '🎒', color: '#FFFACD', category: 'Backpacking' },
                     { name: 'Auto/Aviation/Trains', emoji: '🚂', color: '#DDA0DD', category: 'Auto/Aviation/Trains' },
-                    { name: 'Climbing/Rock Climbing', emoji: '🧗', color: '#E6E6FA', category: 'Climbing/Rock Climbing' },
-                    { name: 'Other', emoji: '📍', color: '#F0F8FF', category: 'Other' }
+                    { name: 'Climbing', emoji: '🧗', color: '#E6E6FA', category: 'Climbing' }
                   ].map(activity => {
                     const hasSubcategories = subcategories.some(sub => 
                       mapData.some(point => point.category === activity.category && point.subcategory === sub)
