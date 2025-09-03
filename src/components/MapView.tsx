@@ -31,6 +31,8 @@ const categoryColors = {
   'Caves & Mines': '#B0E0E6', // Powder Blue
   'Backpacking': '#FFFACD',   // Lemon Chiffon
   'Auto/Aviation/Trains': '#DDA0DD', // Plum
+  'Climbing/Rock Climbing': '#E6E6FA', // Lavender
+  'Other': '#F0F8FF',        // Alice Blue
   'default': '#DDA0DD'        // Plum for any other categories
 };
 
@@ -40,6 +42,8 @@ const markerIcons = {
   'Caves & Mines': createColoredMarkerIcon(categoryColors['Caves & Mines']),
   'Backpacking': createColoredMarkerIcon(categoryColors.Backpacking),
   'Auto/Aviation/Trains': createColoredMarkerIcon(categoryColors['Auto/Aviation/Trains']),
+  'Climbing/Rock Climbing': createColoredMarkerIcon(categoryColors['Climbing/Rock Climbing']),
+  'Other': createColoredMarkerIcon(categoryColors.Other),
   'default': createColoredMarkerIcon(categoryColors.default)
 };
 

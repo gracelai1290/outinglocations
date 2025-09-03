@@ -10,6 +10,8 @@ const categoryColors = {
   'Caves & Mines': '#B0E0E6', // Powder Blue
   'Backpacking': '#FFFACD',   // Lemon Chiffon
   'Auto/Aviation/Trains': '#DDA0DD', // Plum
+  'Climbing/Rock Climbing': '#E6E6FA', // Lavender
+  'Other': '#F0F8FF',        // Alice Blue
   'default': '#DDA0DD'        // Plum for any other categories
 };
 
